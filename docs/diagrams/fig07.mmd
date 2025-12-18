@@ -1,0 +1,31 @@
+%%{init: {
+  "theme": "base",
+    "flowchart": {
+        "htmlLabels": false
+    },
+  "themeVariables": {
+    "fontFamily": "Arial",
+    "fontSize": "14px",
+    "primaryColor": "#ffffff",
+    "primaryTextColor": "#000000",
+    "primaryBorderColor": "#000000",
+    "lineColor": "#000000",
+    "secondaryColor": "#ffffff",
+    "tertiaryColor": "#ffffff",
+    "noteBkgColor": "#ffffff",
+    "noteTextColor": "#000000",
+    "textColor": "#000000"
+  },
+  "flowchart": { "curve": "linear" }
+}}%%
+flowchart LR
+  subgraph Lane[Shared Deterministic Lane]
+    T0[Epoch 0] --> T1[Epoch 1] --> T2[Epoch 2] --> T3[Epoch 3]
+  end
+  S[Sender Injects Perturbation] --> T1
+  R[Receiver Detects by Replay] --> T2
+  N[No addressing or routing] --- Lane
+
+  Note2{{No routing / no addressing<br/>No triangulation / no coordinates}} --- LANE
+
+  classDef op stroke:#000,stroke-width:2px,fill:#fff,color:#000;

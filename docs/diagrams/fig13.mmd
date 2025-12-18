@@ -1,0 +1,40 @@
+%%{init: {
+  "theme": "base",
+    "flowchart": {
+        "htmlLabels": false
+    },
+  "themeVariables": {
+    "fontFamily": "Arial",
+    "fontSize": "14px",
+    "primaryColor": "#ffffff",
+    "primaryTextColor": "#000000",
+    "primaryBorderColor": "#000000",
+    "lineColor": "#000000",
+    "secondaryColor": "#ffffff",
+    "tertiaryColor": "#ffffff",
+    "noteBkgColor": "#ffffff",
+    "noteTextColor": "#000000",
+    "textColor": "#000000"
+  },
+  "flowchart": { "curve": "linear" }
+}}%%
+flowchart LR
+  subgraph Lane1[Lane 1 Public Broadcast]
+    A1[Epoch t] --> A2[Epoch t plus 1] --> A3[Epoch t plus 2]
+  end
+
+  subgraph Lane2[Lane 2 Private Team]
+    B1[Epoch t] --> B2[Epoch t plus 1] --> B3[Epoch t plus 2]
+  end
+
+  subgraph Lane3[Lane 3 Sensor Telemetry]
+    C1[Epoch t] --> C2[Epoch t plus 1] --> C3[Epoch t plus 2]
+  end
+
+  N[Participant Node] --> Lane1
+  N --> Lane2
+  N --> Lane3
+
+  Note3[Lanes are isolated\nDistinct initial state, transforms, deltas, and fingerprints\nSelective subscription without identity or location] --- N
+
+  classDef op stroke:#000,stroke-width:2px,fill:#fff,color:#000;

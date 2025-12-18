@@ -1,0 +1,33 @@
+%%{init: {
+  "theme": "base",
+    "flowchart": {
+        "htmlLabels": false
+    },
+  "themeVariables": {
+    "fontFamily": "Arial",
+    "fontSize": "14px",
+    "primaryColor": "#ffffff",
+    "primaryTextColor": "#000000",
+    "primaryBorderColor": "#000000",
+    "lineColor": "#000000",
+    "secondaryColor": "#ffffff",
+    "tertiaryColor": "#ffffff",
+    "noteBkgColor": "#ffffff",
+    "noteTextColor": "#000000",
+    "textColor": "#000000"
+  },
+  "flowchart": { "curve": "linear" }
+}}%%
+flowchart TB
+  BA[Bounded Arithmetic Module\nDigit wise, no carry] --> LS[Lattice State Store\nFixed grid, bounded values]
+  IN[Input or Observation] --> EN[Deterministic Encoder E]
+  EN --> LS
+  LS --> TE[Lattice Transform Engine\nLocal transforms with matrix M]
+  TE --> DE[Delta Evolution Engine\nSparse delta list]
+  DE --> FP[Fingerprinting Module H]
+  DE --> RV[Replay Verification Engine]
+  CM[Channel Manager\nMulti lane support] --> LS
+  RV --> OUT[Verification Result and Receipt]
+  FP --> OUT
+
+  classDef op stroke:#000,stroke-width:2px,fill:#fff,color:#000;

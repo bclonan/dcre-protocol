@@ -1,0 +1,32 @@
+%%{init: {
+  "theme": "base",
+    "flowchart": {
+        "htmlLabels": false
+    },
+  "themeVariables": {
+    "fontFamily": "Arial",
+    "fontSize": "14px",
+    "primaryColor": "#ffffff",
+    "primaryTextColor": "#000000",
+    "primaryBorderColor": "#000000",
+    "lineColor": "#000000",
+    "secondaryColor": "#ffffff",
+    "tertiaryColor": "#ffffff",
+    "noteBkgColor": "#ffffff",
+    "noteTextColor": "#000000",
+    "textColor": "#000000"
+  },
+  "flowchart": { "curve": "linear" }
+}}%%
+flowchart TB
+  F[Select Transform Matrix Family] --> K1[Identity]
+  F --> K2[Shear]
+  F --> K3[Swap]
+  F --> K4[Fibonacci style]
+  F --> K5[Other small integer matrices]
+
+  F --> DET{Is determinant invertible}
+  DET -->|Yes| REV[Reversible Transform\nSupports backward replay]
+  DET -->|No| IRR[Irreversible Transform\nStill deterministic forward]
+
+  classDef op stroke:#000,stroke-width:2px,fill:#fff,color:#000;

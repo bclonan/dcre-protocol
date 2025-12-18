@@ -1,0 +1,38 @@
+%%{init: {
+  "theme": "base",
+    "flowchart": {
+        "htmlLabels": false
+    },
+  "themeVariables": {
+    "fontFamily": "Arial",
+    "fontSize": "14px",
+    "primaryColor": "#ffffff",
+    "primaryTextColor": "#000000",
+    "primaryBorderColor": "#000000",
+    "lineColor": "#000000",
+    "secondaryColor": "#ffffff",
+    "tertiaryColor": "#ffffff",
+    "noteBkgColor": "#ffffff",
+    "noteTextColor": "#000000",
+    "textColor": "#000000"
+  },
+  "flowchart": { "curve": "linear" }
+}}%%
+
+flowchart TB
+  subgraph Original[Original Execution]
+    O0[Start State G0] --> O1[Apply Deltas] --> O2[End State Gt]
+    O2 --> OH[Fingerprint of Gt]
+  end
+
+  subgraph Replay[Replay Verification]
+    R0[Start State G0] --> R1[Replay Same Deltas] --> R2[Reconstructed State]
+    R2 --> RH[Fingerprint of Reconstructed State]
+  end
+
+  OH --> C{Compare}
+  RH --> C
+  C -->|Match| OK[Valid Proof]
+  C -->|Mismatch| BAD[Invalid Proof]
+
+  classDef op stroke:#000,stroke-width:2px,fill:#fff,color:#000;

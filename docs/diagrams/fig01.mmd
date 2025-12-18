@@ -1,0 +1,16 @@
+flowchart TB
+  A[Input or Observation Data] --> B[Deterministic Encoder E]
+  B --> C[Initial Lattice State G0]
+  C --> D[Local Transform Engine M]
+  D --> E[Sparse Delta Engine]
+  E --> F[Final Lattice State Gt]
+  F --> G[Fingerprint of Gt]
+  E --> H[Fingerprint of Delta Sequence]
+  E --> I[Replay Verification Engine]
+  I --> J{Do fingerprints match}
+  J -->|Yes| K[Valid Proof by Replay]
+  J -->|No| L[Invalid or Divergent Execution]
+  K --> M[Proof of Correct Execution]
+  L --> N[Proof of Divergence]
+  M --> O[Proof of Correct Execution]
+  N --> O[Proof of Divergence]

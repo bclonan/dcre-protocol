@@ -1,0 +1,29 @@
+%%{init: {
+  "theme": "base",
+    "flowchart": {
+        "htmlLabels": false
+    },
+  "themeVariables": {
+    "fontFamily": "Arial",
+    "fontSize": "14px",
+    "primaryColor": "#ffffff",
+    "primaryTextColor": "#000000",
+    "primaryBorderColor": "#000000",
+    "lineColor": "#000000",
+    "secondaryColor": "#ffffff",
+    "tertiaryColor": "#ffffff",
+    "noteBkgColor": "#ffffff",
+    "noteTextColor": "#000000",
+    "textColor": "#000000"
+  },
+  "flowchart": { "curve": "linear" }
+}}%%
+flowchart LR
+  B0[Local Block at epoch t] --> M[Apply Matrix Transform M]
+  M --> B1[Local Block at epoch t plus 1]
+  R[Only local neighborhood is read and written] --- M
+  Note1{{Local block transformation using matrix M}} --- B0
+  Note2{{Matrix M is fixed and known}} --- M
+  Note3{{Matrix M is applied modulo m}} --- B1
+
+  classDef op stroke:#000,stroke-width:2px,fill:#fff,color:#000;

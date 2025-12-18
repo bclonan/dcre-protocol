@@ -1,0 +1,38 @@
+%%{init: {
+  "theme": "base",
+    "flowchart": {
+        "htmlLabels": false
+    },
+  "themeVariables": {
+    "fontFamily": "Arial",
+    "fontSize": "14px",
+    "primaryColor": "#ffffff",
+    "primaryTextColor": "#000000",
+    "primaryBorderColor": "#000000",
+    "lineColor": "#000000",
+    "secondaryColor": "#ffffff",
+    "tertiaryColor": "#ffffff",
+    "noteBkgColor": "#ffffff",
+    "noteTextColor": "#000000",
+    "textColor": "#000000"
+  },
+  "flowchart": { "curve": "linear" }
+}}%%
+flowchart TB
+  subgraph G[Bounded Lattice Grid]
+    direction LR
+    C11[Cell] --- C12[Cell] --- C13[Cell]
+    C21[Cell] --- C22[Cell] --- C23[Cell]
+    C31[Cell] --- C32[Cell] --- C33[Cell]
+  end
+  R1[Fixed grid dimensions] --> G
+  R2[Each cell stores bounded value] --> G
+  R3[No overflow and no carry] --> G
+  R4[Zero is a normal cell value] --> G
+  N1{{Fixed n\n×n grid}} --- G
+  N2{{Values bounded 0..m−1}} --- G
+  N3{{Digit-wise arithmetic\nNo carry propagation}} --- G
+
+  Note1{{All cell values are bounded residues in Z_m<br/>Digit-wise arithmetic, no carry propagation<br/>Zero is first-class}} 
+
+  classDef op stroke:#000,stroke-width:2px,fill:#fff,color:#000;

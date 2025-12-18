@@ -1,0 +1,30 @@
+%%{init: {
+  "theme": "base",
+    "flowchart": {
+        "htmlLabels": false
+    },
+  "themeVariables": {
+    "fontFamily": "Arial",
+    "fontSize": "14px",
+    "primaryColor": "#ffffff",
+    "primaryTextColor": "#000000",
+    "primaryBorderColor": "#000000",
+    "lineColor": "#000000",
+    "secondaryColor": "#ffffff",
+    "tertiaryColor": "#ffffff",
+    "noteBkgColor": "#ffffff",
+    "noteTextColor": "#000000",
+    "textColor": "#000000"
+  },
+  "flowchart": { "curve": "linear" }
+}}%%
+flowchart LR
+  O[Observer] --> A[Artifacts Recorded]
+  A --> V[Verifier]
+  V --> P[Replay and Compare]
+  P --> R[Result]
+
+  Note1{{Observer verifies current state<br/>Verifier checks replayable trajectory}} --- OBSERVER
+  Note2{{Separate roles: observer can verify without replaying<br/>Verifier must replay to ensure integrity}} --- VERIFIER
+ 
+  classDef op stroke:#000,stroke-width:2px,fill:#fff,color:#000;

@@ -1,0 +1,32 @@
+%%{init: {
+  "theme": "base",
+    "flowchart": {
+        "htmlLabels": false
+    },
+  "themeVariables": {
+    "fontFamily": "Arial",
+    "fontSize": "14px",
+    "primaryColor": "#ffffff",
+    "primaryTextColor": "#000000",
+    "primaryBorderColor": "#000000",
+    "lineColor": "#000000",
+    "secondaryColor": "#ffffff",
+    "tertiaryColor": "#ffffff",
+    "noteBkgColor": "#ffffff",
+    "noteTextColor": "#000000",
+    "textColor": "#000000"
+  },
+  "flowchart": { "curve": "linear" }
+}}%%
+flowchart TB
+  M1[Encode message A] --> C[Composite Injection Operator]
+  M2[Encode message B] --> C
+  J[Interference or Jamming Signal] --> C
+
+  C --> G0[Composite Lattice State at epoch t]
+  G0 --> EV[Deterministic Evolution via local transforms]
+  EV --> FP[Replayable Trajectory with Fingerprints]
+
+  Note4[Collision produces deterministic composite state Jamming creates observable structure, not ambiguity] --- FP
+
+  classDef op stroke:#000,stroke-width:2px,fill:#fff,color:#000;

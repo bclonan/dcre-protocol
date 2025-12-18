@@ -1,0 +1,29 @@
+%%{init: {
+  "theme": "base",
+    "flowchart": {
+        "htmlLabels": false
+    },
+  "themeVariables": {
+    "fontFamily": "Arial",
+    "fontSize": "14px",
+    "primaryColor": "#ffffff",
+    "primaryTextColor": "#000000",
+    "primaryBorderColor": "#000000",
+    "lineColor": "#000000",
+    "secondaryColor": "#ffffff",
+    "tertiaryColor": "#ffffff",
+    "noteBkgColor": "#ffffff",
+    "noteTextColor": "#000000",
+    "textColor": "#000000"
+  },
+  "flowchart": { "curve": "linear" }
+}}%%
+flowchart TB
+  MSG[Message] --> ENC[Encode]
+  ENC --> P[Perturbation P]
+  P --> G[Lattice Update]
+  G --> EV[Evolution]
+  EV --> FP[Fingerprint + Receipt]
+  Note1{{Message is encoded as deterministic perturbation<br/>Lattice evolves deterministically, fingerprintable}} --- FP
+
+  classDef op stroke:#000,stroke-width:2px,fill:#fff,color:#000;
