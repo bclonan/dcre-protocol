@@ -2095,6 +2095,12 @@ const DCREProductionDemo = () => {
               >
                 clonanxyz@gmail.com
               </a>
+              <a
+                href="https://linkedin.com/in/bclonan"
+                className="text-sm text-slate-400 hover:text-white"
+              >
+                Linkedin
+              </a>
               <span className="px-3 py-1.5 rounded-full bg-emerald-500/20 text-emerald-400 text-xs font-medium">
                 Open to Work
               </span>
